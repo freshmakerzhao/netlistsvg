@@ -40,6 +40,10 @@ function dumpLayout(skinData, yosysNetlist, prelayout, done) {
 }
 exports.dumpLayout = dumpLayout;
 function render(skinData, yosysNetlist, done, elkData) {
+    
+    console.log("=== Parsed Netlist JSON (Formatted) ===");
+    console.log(JSON.stringify(yosysNetlist, null, 2));  // 打印格式化 JSON
+
     var flatModule = createFlatModule(skinData, yosysNetlist);
     var kgraph = elkGraph_1.buildElkGraph(flatModule);
     var layoutProps = Skin_1.default.getProperties();
